@@ -1,0 +1,24 @@
+# Robots.txt - Nova Phénix International
+# https://novaphenix.sn
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://novaphenix.sn/sitemap.xml
+
+# Interdire l'accès aux dossiers de scripts
+Disallow: /scripts/
+
+# Autoriser les crawlers spécifiques
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /

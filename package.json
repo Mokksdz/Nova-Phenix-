@@ -1,0 +1,21 @@
+{
+  "name": "nova-phenix-site",
+  "version": "1.0.0",
+  "description": "Site web du Groupe Nova Phénix International",
+  "scripts": {
+    "build:css": "tailwindcss -i ./src/input.css -o ./css/styles.css --minify",
+    "watch:css": "tailwindcss -i ./src/input.css -o ./css/styles.css --watch",
+    "build": "npm run build:css && bash scripts/build-dist.sh",
+    "compress": "bash scripts/compress-images.sh"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0"
+  },
+  "keywords": [
+    "nova-phenix",
+    "website",
+    "tailwindcss"
+  ],
+  "author": "Groupe Nova Phénix International",
+  "license": "PROPRIETARY"
+}
