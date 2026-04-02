@@ -826,7 +826,7 @@
                                     class="text-[9px] uppercase font-semibold text-gray-400 tracking-wide">Partenaire</span>
                                 <a href="https://www.dercavo.com/" target="_blank"
                                     class="hover:opacity-80 transition-opacity">
-                                    <img src="logo-dercavo.webp" alt="Dercavo" class="h-7 w-auto object-contain">
+                                    <img src="logo-dercavo.webp" alt="Dercavo" class="h-8 w-auto object-contain">
                                 </a>
                             </div>
                             <div class="bg-purple-100 p-2.5 rounded-xl text-purple-700 flex-shrink-0">
@@ -872,6 +872,11 @@
                                 <img src="logo-nova-phenix-home.png" alt="Logo Nova Phenix Home"
                                     class="w-full h-auto object-contain">
                             </div>
+                            <div class="flex flex-col items-center">
+                                <span
+                                    class="text-[9px] uppercase font-semibold text-gray-400 tracking-wide">Partenaire</span>
+                                <img src="logo-biolux.jpeg" alt="Biolux" class="h-8 w-auto object-contain">
+                            </div>
                             <div class="bg-blue-100 p-2.5 rounded-xl text-nova-blue flex-shrink-0">
                                 <i class="fa-solid fa-couch text-lg"></i>
                             </div>
@@ -914,6 +919,14 @@
                             <div class="w-28 flex-shrink-0">
                                 <img src="logo-nova-phenix-trade.png" alt="Logo Nova Phenix Trade"
                                     class="w-full h-auto object-contain">
+                            </div>
+                            <div class="flex flex-col items-center">
+                                <span
+                                    class="text-[9px] uppercase font-semibold text-gray-400 tracking-wide">Partenaires</span>
+                                <div class="flex items-center gap-2">
+                                    <img src="logo-sama.jpeg" alt="Sama" class="h-8 w-auto object-contain">
+                                    <img src="logo-inter-pro.jpeg" alt="Inter Pro" class="h-8 w-auto object-contain">
+                                </div>
                             </div>
                             <div class="bg-cyan-100 p-2.5 rounded-xl text-cyan-600 flex-shrink-0">
                                 <i class="fa-solid fa-right-left text-lg"></i>
@@ -960,7 +973,7 @@
                                 <a href="https://www.emanagency.net" target="_blank"
                                     class="hover:opacity-80 transition-opacity">
                                     <img src="logo-eman-travel.jpg" alt="Eman Travel"
-                                        class="h-10 w-auto object-contain">
+                                        class="h-8 w-auto object-contain">
                                 </a>
                             </div>
                             <div class="bg-green-100 p-2.5 rounded-xl text-green-600 flex-shrink-0">
@@ -1643,6 +1656,8 @@
                         <!-- Main Image -->
                         <img id="eventMainImage" src="" alt="Event Gallery"
                             class="max-h-[80vh] max-w-full object-contain">
+                        <!-- Main Video -->
+                        <video id="eventMainVideo" src="" class="max-h-[80vh] max-w-full object-contain hidden" controls></video>
 
                         <!-- Navigation Buttons -->
                         <button onclick="prevEventImage()"
@@ -1803,6 +1818,7 @@
                 this.modal = document.getElementById(`${name}GalleryModal`);
                 this.backdrop = document.getElementById(`${name}GalleryBackdrop`);
                 this.mainImage = document.getElementById(`${name}MainImage`);
+                this.mainVideo = document.getElementById(`${name}MainVideo`);
                 this.counter = document.getElementById(`${name}ImageCounter`);
                 this.init();
             }
@@ -1837,7 +1853,22 @@
             }
 
             updateImage() {
-                if (this.mainImage) this.mainImage.src = this.images[this.currentIndex];
+                const src = this.images[this.currentIndex];
+                const isVideo = src.endsWith('.mp4') || src.endsWith('.webm') || src.endsWith('.ogg');
+                
+                if (isVideo && this.mainVideo) {
+                    this.mainImage.classList.add('hidden');
+                    this.mainVideo.classList.remove('hidden');
+                    this.mainVideo.src = src;
+                    this.mainVideo.play();
+                } else if (this.mainImage) {
+                    if (this.mainVideo) {
+                        this.mainVideo.classList.add('hidden');
+                        this.mainVideo.pause();
+                    }
+                    this.mainImage.classList.remove('hidden');
+                    this.mainImage.src = src;
+                }
                 if (this.counter) this.counter.textContent = `${this.currentIndex + 1} / ${this.images.length}`;
             }
 
@@ -1854,6 +1885,7 @@
 
         // Initialisation des galeries
         const eventGallery = new Gallery('event', [
+            'image-event/video-event-01.mp4',
             'image-event/Fii/salon-fii-01.jpeg', 'image-event/Fii/salon-fii-02.jpeg',
             'image-event/Fii/salon-fii-03.jpeg', 'image-event/Fii/salon-fii-04.jpeg',
             'image-event/Fii/salon-fii-05.jpeg', 'image-event/Fii/salon-fii-06.jpeg',
@@ -1867,7 +1899,16 @@
             'image-event/nova-phenix-event-15.jpg', 'image-event/nova-phenix-event-16.jpg',
             'image-event/nova-phenix-event-17.jpg', 'image-event/nova-phenix-event-18.jpg',
             'image-event/nova-phenix-event-19.jpg', 'image-event/nova-phenix-event-20.jpg',
-            'image-event/nova-phenix-event-21.jpg'
+            'image-event/nova-phenix-event-21.jpg', 'image-event/nova-phenix-event-22.jpg',
+            'image-event/nova-phenix-event-23.jpg', 'image-event/nova-phenix-event-24.jpg',
+            'image-event/nova-phenix-event-25.jpg', 'image-event/nova-phenix-event-26.jpg',
+            'image-event/nova-phenix-event-27.jpg', 'image-event/nova-phenix-event-28.jpg',
+            'image-event/nova-phenix-event-29.jpg', 'image-event/nova-phenix-event-30.jpg',
+            'image-event/nova-phenix-event-31.jpg', 'image-event/nova-phenix-event-32.jpg',
+            'image-event/nova-phenix-event-33.jpg', 'image-event/nova-phenix-event-34.jpg',
+            'image-event/nova-phenix-event-35.jpg', 'image-event/nova-phenix-event-36.jpg',
+            'image-event/nova-phenix-event-37.jpg', 'image-event/nova-phenix-event-38.jpg',
+            'image-event/nova-phenix-event-39.jpg', 'image-event/nova-phenix-event-40.jpg'
         ]);
 
         const homeGallery = new Gallery('home', [

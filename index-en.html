@@ -802,6 +802,11 @@
                                 <img src="logo-nova-phenix-home.png" alt="Logo Nova Phenix Home"
                                     class="w-full h-auto object-contain">
                             </div>
+                            <div class="flex flex-col items-center">
+                                <span
+                                    class="text-[9px] uppercase font-semibold text-gray-400 tracking-wide">Partner</span>
+                                <img src="logo-biolux.jpeg" alt="Biolux" class="h-8 w-auto object-contain">
+                            </div>
                             <div class="bg-blue-100 p-2.5 rounded-xl text-nova-blue flex-shrink-0">
                                 <i class="fa-solid fa-couch text-lg"></i>
                             </div>
@@ -837,8 +842,16 @@
                                 <img src="logo-nova-phenix-trade.png" alt="Logo Nova Phenix Trade"
                                     class="w-full h-auto object-contain">
                             </div>
-                            <div class="bg-cyan-100 p-2 rounded-full text-cyan-600">
-                                <i class="fa-solid fa-right-left text-xl"></i>
+                            <div class="flex flex-col items-center">
+                                <span
+                                    class="text-[9px] uppercase font-semibold text-gray-400 tracking-wide">Partners</span>
+                                <div class="flex items-center gap-2">
+                                    <img src="logo-sama.jpeg" alt="Sama" class="h-8 w-auto object-contain">
+                                    <img src="logo-inter-pro.jpeg" alt="Inter Pro" class="h-8 w-auto object-contain">
+                                </div>
+                            </div>
+                            <div class="bg-cyan-100 p-2.5 rounded-xl text-cyan-600 flex-shrink-0">
+                                <i class="fa-solid fa-right-left text-lg"></i>
                             </div>
                         </div>
                         <h3 class="text-lg font-bold text-gray-800 mb-2">Nova Phénix Trade</h3>
@@ -878,7 +891,7 @@
                             <div class="flex flex-col items-center">
                                 <span class="text-[9px] uppercase font-semibold text-gray-400 tracking-wide">Partner</span>
                                 <a href="https://www.emanagency.net" target="_blank" class="hover:opacity-80 transition-opacity">
-                                    <img src="logo-eman-travel.jpg" alt="Eman Travel" class="h-10 w-auto object-contain">
+                                    <img src="logo-eman-travel.jpg" alt="Eman Travel" class="h-8 w-auto object-contain">
                                 </a>
                             </div>
                             <div class="bg-green-100 p-2.5 rounded-xl text-green-600 flex-shrink-0">
@@ -1418,6 +1431,8 @@
                         <!-- Main Image -->
                         <img id="eventMainImage" src="" alt="Event Gallery"
                             class="max-h-[80vh] max-w-full object-contain">
+                        <!-- Main Video -->
+                        <video id="eventMainVideo" src="" class="max-h-[80vh] max-w-full object-contain hidden" controls></video>
 
                         <!-- Navigation Buttons -->
                         <button onclick="prevEventImage()"
@@ -1558,6 +1573,8 @@
 
         // Event Gallery Logic - SEO optimized names
         const eventImages = [
+            // Video
+            'image-event/video-event-01.mp4',
             // Salon FII
             'image-event/Fii/salon-fii-01.jpeg',
             'image-event/Fii/salon-fii-02.jpeg',
@@ -1586,13 +1603,33 @@
             'image-event/nova-phenix-event-18.jpg',
             'image-event/nova-phenix-event-19.jpg',
             'image-event/nova-phenix-event-20.jpg',
-            'image-event/nova-phenix-event-21.jpg'
+            'image-event/nova-phenix-event-21.jpg',
+            'image-event/nova-phenix-event-22.jpg',
+            'image-event/nova-phenix-event-23.jpg',
+            'image-event/nova-phenix-event-24.jpg',
+            'image-event/nova-phenix-event-25.jpg',
+            'image-event/nova-phenix-event-26.jpg',
+            'image-event/nova-phenix-event-27.jpg',
+            'image-event/nova-phenix-event-28.jpg',
+            'image-event/nova-phenix-event-29.jpg',
+            'image-event/nova-phenix-event-30.jpg',
+            'image-event/nova-phenix-event-31.jpg',
+            'image-event/nova-phenix-event-32.jpg',
+            'image-event/nova-phenix-event-33.jpg',
+            'image-event/nova-phenix-event-34.jpg',
+            'image-event/nova-phenix-event-35.jpg',
+            'image-event/nova-phenix-event-36.jpg',
+            'image-event/nova-phenix-event-37.jpg',
+            'image-event/nova-phenix-event-38.jpg',
+            'image-event/nova-phenix-event-39.jpg',
+            'image-event/nova-phenix-event-40.jpg'
         ];
 
         let currentEventIndex = 0;
         const modal = document.getElementById('eventGalleryModal');
         const backdrop = document.getElementById('eventGalleryBackdrop');
         const mainImage = document.getElementById('eventMainImage');
+        const mainVideo = document.getElementById('eventMainVideo');
         const counter = document.getElementById('eventImageCounter');
 
         function openEventGallery() {
@@ -1613,7 +1650,22 @@
         }
 
         function updateEventImage() {
-            mainImage.src = eventImages[currentEventIndex];
+            const src = eventImages[currentEventIndex];
+            const isVideo = src.endsWith('.mp4') || src.endsWith('.webm') || src.endsWith('.ogg');
+            
+            if (isVideo && mainVideo) {
+                mainImage.classList.add('hidden');
+                mainVideo.classList.remove('hidden');
+                mainVideo.src = src;
+                mainVideo.play();
+            } else {
+                if (mainVideo) {
+                    mainVideo.classList.add('hidden');
+                    mainVideo.pause();
+                }
+                mainImage.classList.remove('hidden');
+                mainImage.src = src;
+            }
             counter.textContent = `${currentEventIndex + 1} / ${eventImages.length}`;
         }
 
