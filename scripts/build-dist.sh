@@ -37,7 +37,6 @@ cp "logo-biova.webp" dist/ 2>/dev/null || true
 cp "logo-elkader-plast.webp" dist/ 2>/dev/null || true
 
 echo "🖼️  Copie des autres images..."
-cp "adel-chabane-ceo-fondateur.jpeg" dist/ 2>/dev/null || true
 cp "hero-background.png" dist/ 2>/dev/null || true
 cp "affiche-immigration-canada.png" dist/ 2>/dev/null || true
 cp "logo-eman-travel.jpg" dist/ 2>/dev/null || true
@@ -46,23 +45,32 @@ cp "logo-innovation-way-medical.jpeg" dist/ 2>/dev/null || true
 cp "logo-medical-tourism.jpg" dist/ 2>/dev/null || true
 cp "logo-maison-savon-alt.png" dist/ 2>/dev/null || true
 
+echo "🎨 Build + copie du CSS compilé..."
+npm run build:css >/dev/null 2>&1 || (echo "   ⚠️  build:css a échoué — installez npm puis 'npm install'"; exit 1)
+mkdir -p dist/css
+cp css/styles.css dist/css/
+
+echo "📄 Copie de la version EN..."
+cp index-en.html dist/ 2>/dev/null || true
+
 echo "📁 Copie des galeries..."
-mkdir -p "dist/Dercavo Réalisations"
-cp -r "Dercavo Réalisations/"* "dist/Dercavo Réalisations/" 2>/dev/null || true
+mkdir -p dist/dercavo-realisations
+cp -r dercavo-realisations/* dist/dercavo-realisations/ 2>/dev/null || true
 
-mkdir -p "dist/Image Event"
-cp -r "Image Event/"* "dist/Image Event/" 2>/dev/null || true
+mkdir -p dist/image-event
+cp -r image-event/* dist/image-event/ 2>/dev/null || true
 
-mkdir -p "dist/Image Home"
-cp -r "Image Home/"* "dist/Image Home/" 2>/dev/null || true
+mkdir -p dist/image-home
+cp -r image-home/* dist/image-home/ 2>/dev/null || true
 
-mkdir -p "dist/Image Travel"
-cp -r "Image Travel/"* "dist/Image Travel/" 2>/dev/null || true
+mkdir -p dist/image-travel
+cp -r image-travel/* dist/image-travel/ 2>/dev/null || true
 
-# Copier les fichiers SEO
-echo "🔍 Copie des fichiers SEO..."
+# Copier les fichiers SEO + déploiement
+echo "🔍 Copie des fichiers SEO + config..."
 cp sitemap.xml dist/ 2>/dev/null || true
 cp robots.txt dist/ 2>/dev/null || true
+cp netlify.toml dist/ 2>/dev/null || true
 
 # Nettoyer les fichiers parasites du dist
 echo "🧹 Nettoyage des fichiers parasites..."

@@ -10,25 +10,19 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="logo-nova-phenix-groupe.png">
     
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'nova-blue': '#1e3a8a',
-                        'nova-gold': '#d97706',
-                        'nova-dark': '#0f172a',
-                    }
-                }
-            }
-        }
-    </script>
-    
+    <!-- Hreflang / canonical -->
+    <link rel="canonical" href="https://novaphenix.sn/mentions-legales.html">
+    <link rel="alternate" hreflang="fr" href="https://novaphenix.sn/mentions-legales.html">
+    <link rel="alternate" hreflang="x-default" href="https://novaphenix.sn/mentions-legales.html">
+
+    <!-- Google Fonts — Plus Jakarta Sans + DM Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap">
+
+    <!-- Nova Phénix Design System (compiled Tailwind + design tokens) -->
+    <link rel="stylesheet" href="css/styles.css">
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -39,7 +33,7 @@
         <div class="container mx-auto px-6">
             <div class="flex items-center justify-between">
                 <a href="index.html" class="flex items-center gap-3">
-                    <img src="logo-nova-phenix-groupe.png" alt="Nova Phénix" class="h-12 w-auto">
+                    <img src="logo-nova-phenix-groupe.png" alt="Nova Phénix" class="h-12 w-auto" loading="lazy" decoding="async">
                     <span class="font-bold text-xl hidden md:block">Nova Phénix International</span>
                 </a>
                 <a href="index.html" class="text-nova-gold hover:text-white transition-colors flex items-center gap-2">
