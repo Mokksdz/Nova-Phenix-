@@ -22,7 +22,7 @@ cp politique-confidentialite.html dist/ 2>/dev/null || true
 
 echo "🖼️  Copie des logos Nova Phénix..."
 cp "logo-nova-phenix-groupe.png" dist/ 2>/dev/null || true
-cp "logo-nova-phenix-events.png" dist/ 2>/dev/null || true
+cp "logo-nova-phenix-events.svg" dist/ 2>/dev/null || true
 cp "logo-nova-phenix-consulting.png" dist/ 2>/dev/null || true
 cp "logo-nova-phenix-trade.png" dist/ 2>/dev/null || true
 cp "logo-nova-phenix-home.png" dist/ 2>/dev/null || true
@@ -39,7 +39,7 @@ cp "logo-elkader-plast.webp" dist/ 2>/dev/null || true
 echo "🖼️  Copie des autres images..."
 cp "hero-background.png" dist/ 2>/dev/null || true
 cp "affiche-immigration-canada.png" dist/ 2>/dev/null || true
-cp "logo-eman-travel.jpg" dist/ 2>/dev/null || true
+cp "logo-iman-travel.svg" dist/ 2>/dev/null || true
 cp "logo-innovation-way-canada.jpeg" dist/ 2>/dev/null || true
 cp "logo-innovation-way-medical.jpeg" dist/ 2>/dev/null || true
 cp "logo-medical-tourism.jpg" dist/ 2>/dev/null || true
